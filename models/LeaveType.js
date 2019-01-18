@@ -5,7 +5,9 @@ class LeaveType{
         };
         if(obj){
             this.id = obj.hlt_id;
+            this.leaveName = obj.hlt_leave_name;
             this.type = obj.hlt_type;
+            this.maxLeave = obj.hlt_max_leave;
             this.designationId = obj.hlt.designation_id;
             this.createdBy = obj.hlt_created_by;
             this.createdAt = obj.hlt_created_at;
@@ -31,6 +33,22 @@ class LeaveType{
     get type()
     {
         return this.document.hlt_type;
+    }
+
+    set leaveName(value){
+        this.document.hlt_leave_name = value;
+    }
+    get leaveName()
+    {
+        return this.document.hlt_leave_name;
+    }
+
+    set maxLeave(value){
+        this.document.hlt_max_leave = value;
+    }
+    get maxLeave()
+    {
+        return this.document.hlt_max_leave;
     }
 
     set designationId(value){
@@ -158,3 +176,27 @@ function _getDataToBeUpdt(obj) {
     delete obj.emp_created_at;
     return obj;
 }
+
+/**
+ * CREATE TABLE public.hr_leave_type
+(
+  hlt_id character varying(100),
+  hlt_type character varying(100),
+  hlt_created_at date,
+  hlt_created_by character varying(100),
+  hlt_updated_by character varying(100),
+  hlt_updated_at character varying(100),
+  hlt_is_deleted boolean,
+  hlt_designation_id character varying(100),
+  hlt_emp_id character varying(100)
+)
+WITH (
+  OIDS=FALSE
+);
+
+Alter table hr_leave_type
+add column hlt_leave_name character varying(100);
+
+Alter table hr_leave_type
+add column hlt_max_leave character varying(100);
+ */

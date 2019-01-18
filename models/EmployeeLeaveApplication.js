@@ -20,7 +20,7 @@ class EmployeeLeaveApplication{
             this.updatedAt = obj.hela_updated_at;
             this.isDeleted = obj.hela_is_deleted;
             this.deptName = obj.hela_dept_name;
-            this.sex = obj.hela_sex;
+            this.gender = obj.hela_sex;
             this.mobileNo = obj.hela_mobile_no;
             this.location = obj.hela_location;
         }
