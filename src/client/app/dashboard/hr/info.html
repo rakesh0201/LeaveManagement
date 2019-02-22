@@ -1,0 +1,36 @@
+
+    
+    <div class="container">
+        <div class="panel-group">
+          <div class="panel panel-default">
+            <div class="panel-heading">Dashboard of the Employee</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-6" >
+                       <table>
+                          
+                           <tr><td> Employee ID: </td> <td> {{vm.employeeId}}</td></tr>
+                           <tr> <td> Name: </td> <td>{{vm.name}}</td></tr>
+                           <tr><td>Designation: </td><td>{{vm.designation}}</td></tr>
+                       
+                       </table>
+                    </div>
+                    <div class="col-sm-6">
+                     <table>
+                            <tr> <td> Department Name: </td><td>{{vm.departmentName}}</td></tr>
+                            <tr> <td> DOB: </td><td>{{vm.dob}}</td></tr>
+                            <tr> <td> Date of Joning: </td><td>{{vm.doj}}</td></tr>
+                     </table>
+                    </div>
+                    
+                  </div><br>
+                  <a ui-sref="leaveBalance"  class="btn btn-primary btn-sm">Leave Balance</a>
+                  <a ui-sref="leavetype"> <button class="btn btn-primary btn-sm">Leave Type</button></a>
+                  <a ui-sref="leavehistory"> <button class="btn btn-primary btn-sm">Leave History</button></a>
+                  <a ui-sref="leaveapplication"> <button class="btn btn-primary btn-sm">Apply Leave</button></a>
+                  <div ng-view></div>
+            </div>
+          </div>
+        </div>
+    </div>   
+     

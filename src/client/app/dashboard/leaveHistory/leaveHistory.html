@@ -1,0 +1,43 @@
+
+    <div class="container">
+        <div ng-app="app.dashboard" ng-controller="historyCtrl">
+            <div>
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Leave History
+                            
+                        </div>
+                        <div class="panel-body">
+                            <div>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>leaveName</th>
+                                            <th>start-date</th>
+                                            <th>end-date</th>
+                                            <th>leaveDays</th>
+                                            <th>status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr ng-repeat= "x in vm.leaveHistory">
+                                            
+                                               <td>{{x.name}}</td> 
+                                               <td>{{x.startDate}}</td> 
+                                               <td>{{x.endDate}}</td> 
+                                               <td>{{x.leaveDays}}</td> 
+                                               <td>{{x.status}}</td> 
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            <script src="leaveHistory.controller.js"></script>
+        </div>
+    </div>

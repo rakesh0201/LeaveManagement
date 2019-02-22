@@ -1,0 +1,189 @@
+
+
+    <div class="container">
+                    <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">List Of All Leave Types
+                        <button class="btn btn-info btn-sm pull-right" data-toggle="modal" data-target="#newLeaveModal">Add
+                            new Leave</button>
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Type</th>
+                                        <th>Max Leave</th>
+                                       <th>Designation</th>
+                                        <th>Status</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="x in vm.leaveType">
+
+                                        <td>{{x.name}}</td>
+                                        <td>{{x.type}}</td>
+                                        <td>{{x.maxLeave}}</td>
+                                        <td>{{x.designation}}</td>
+                                        <td>{{x.status}}</td><!-- remove it in future-->
+                                        <td><button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModalEdit"
+                                                ng-click="vm.selectLeave(x)">Edit</button></td>
+                                        <td><button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModalDelete"
+                                                ng-click="vm.selectLeave(x)">Delete</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+    
+        <script src="leaveType.controller.js"></script>
+    </div>
+
+
+    <!--modal for add new leave -->
+    <div class="modal" id="newLeaveModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New Leave</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="newLeave">Leave Name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="newLeave" placeholder="Enter new Leave Name"
+                                ng-model="vm.newLeave.name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="leaveType">Type</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="leaveType" placeholder="Leave Type" class="form-control"
+                                    ng-model="vm.newLeave.type">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="maxDays">Max Leave</label>
+                            <div class="col-sm-10">
+                                <input type="number" id="maxDays" placeholder="Number of max leave" class="form-control"
+                                    ng-model="vm.newLeave.maxLeave">
+                            </div>
+                        </div>
+                        
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="designation">Designation</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="designation" placeholder=" Enter Designation" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-offset-2"></label>
+                            <button type="button" class="btn btn-success" ng-click="addLeave()" data-dismiss="modal">Add</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Model for edit -->
+    <div class="modal" id="myModalEdit">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Edit leave Info</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="leaveName">name</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="leaveName" placeholder="Enter leaveName"
+                                    ng-model="vm.clickeduser.name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="type">type</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="type" placeholder="Enter type(paid or unpaid)" class="form-control"
+                                    ng-model="vm.clickeduser.type">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="maxLeave">maxLeave</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="maxLeave" placeholder="Enter maxLeave" class="form-control"
+                                    ng-model="vm.clickeduser.maxLeave">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="maxLeave">Designation</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="designation" placeholder="Enter designation" class="form-control"
+                                    ng-model="vm.clickeduser.designation">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="status">status</label>
+                            <div class="col-sm-10">
+                                <input type="text" id="status" placeholder="Enter status(yes or no)" class="form-control"
+                                    ng-model="vm.clickeduser.status">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-offset-2"></label>
+                            
+                            <button type="button" class="btn btn-primary"   data-dismiss="modal">Done</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Model For delete-->
+    <div class="modal" id="myModalDelete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Are You sure?</h4>
+                </div>
+                <div class="modal-body">
+                    <h3 style="color: red"> Are You sure want to delete ,All information will be deleted</h3>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal" ng-click="deleteLeave()">Yes</button>
+                    <button type="button" class="btn btn-default pull-right" data-dismiss="modal">No</button>
+                </div>
+
+
+            </div>
+        </div>
+
+    </div>
+
+    
+
+
+

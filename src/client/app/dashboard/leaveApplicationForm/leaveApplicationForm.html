@@ -1,0 +1,165 @@
+
+    <style>
+      span.msg{
+        color:red;
+      }
+    </style>
+      
+  
+ 
+    <div class="container">
+            <h1>Leave Application Form</h1>
+            
+            
+            <form class="form-horizontal" name="userForm" ng-submit="submitForm(userForm.$valid)" novalidate>
+              <div class="form-group" >
+
+                    <label for="id" class=" col-sm-1 control-label">Id </label>
+                    <div class="col-sm-11">
+                      <input type="text" class="form-control " id="id" placeholder="unique id" ng-model="vm.leaveApplication.id" >
+                    </div>
+              </div> 
+              
+              <div class="form-group">
+                  
+                <label for="empId"  class="control-label col-sm-1 ">Employee Id</label>
+                <div class="col-sm-11">
+                <input type="text" class="form-control" id="empId" placeholder="Employee id" ng-model="vm.leaveApplication.empId">
+              </div>
+              </div>
+              
+                <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                    <label for="name"  class="control-label col-sm-1 ">Name</label>
+                    <div class="col-sm-11">
+                    <input type="text" name="name" class="form-control" ng-model="vm.leaveApplication.name" placeholder="Enter your name" required>
+                    </div>
+                    <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">You name is required.</p>
+
+                </div>
+
+                <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+                  <label for="email"  class="control-label col-sm-1 ">Email</label>
+                  <div class="col-sm-11">
+                  <input type="email" name="email" class="form-control" ng-model="vm.leaveApplication.email" placeholder="Enter your mail id" required>
+                  </div>
+                  <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+              </div>
+
+                <div class="form-group">
+                        <label for="deptName" class="control-label col-sm-1 ">Department Name</label>
+                        <div class="col-sm-11">
+                        <input type="text" class="form-control" id="deptName" placeholder="Enter department name" ng-model="vm.leaveApplication.deptName" >
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                            <label for="designation"  class="control-label col-sm-1 ">Designation</label>
+                            <div class="col-sm-11">
+                            <input type="text" class="form-control" id="designation" placeholder="Enter designation" ng-model="vm.leaveApplication.designation" >
+                            </div>
+                        </div>
+
+                <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Gender
+                            <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li class="dropdown-item" > Male </li>
+
+                              <li class="dropdown-item" > Female </li>
+                              <li class="dropdown-item" > others </li>
+                            </ul>
+                </div><br>
+
+                <div class="form-group">
+                        <label for="leaveStart" class="control-label col-sm-1 ">Leave Start</label>
+                        <div class="col-sm-11">
+                        <input type="date" class="form-control" id="leaveStart" ng-model="vm.leaveApplication.startDate" ng-change='vm.checkErr(vm.leaveApplication.startDate,vm.leaveApplication.endDate)'  required >
+                        </div>
+                        
+                </div>
+
+                <div class="form-group" >
+                        <label for="leaveEnd" class="control-label col-sm-1 ">Leave End</label>
+                        <div class="col-sm-11">
+                        <input type="date" class="form-control" id="leaveEnd" ng-model="vm.leaveApplication.endDate" ng-change='vm.checkErr(vm.leaveApplication.startDate,vm.leaveApplication.endDate)' required>
+                        </div>
+                        
+                </div>
+
+                <span class="msg">{{vm.errMessage}}</span>
+                <div class="form-group">
+                        <label for="days"  class="control-label col-sm-1 ">Leave Days</label>
+                        <div class="col-sm-11">
+                        <input type="text" class="form-control"  placeholder="How many days" id="days" ng-model="vm.leaveApplication.leaveDays" >
+                        </div>
+                </div>    
+
+                <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" id="leaveType" data-toggle="dropdown"
+                          aria-haspopup="true" aria-expanded="false">leaveType <span class="caret"></span> </button>
+                        <ul class="dropdown-menu" aria-labelledby="leaveType">
+                          <li class="dropdown-item" >Casual</li>
+                          <li class="dropdown-item" >Maternity</li>
+                          <li class="dropdown-item" >Paternity</li>
+                          <li class="dropdown-item" >Sick</li>
+                          <li class="dropdown-item" >Sabbatical</li>
+                        </ul>
+                </div> <br>
+
+                <div class="form-group" ng-class="{ 'has-error' : userForm.mobileNo.$invalid && !userForm.mobileNo.$pristine }">
+                        <label for="mobileNo"  class="control-label col-sm-1  ">Mobile No</label>
+                        <div class="col-sm-11">
+                        <input type="number" name="mobileNo" class="form-control" id="mobileNo" placeholder="Enter mobile number" ng-model="vm.leaveApplication.mobileNo"  ng-pattern="/^[7-9][0-9]{9}$/"  ng-required="true" >
+                        </div>
+                        <span ng-show="userForm.mobileNo.$error.pattern" class="help-block">Please enter valid number!</span>
+                      
+                        
+                          
+                        
+                    </div>
+                   
+                    <div class="form-group">
+                      <label for="location"  class="control-label col-sm-1 ">Location</label>
+                      <div class="col-sm-11">
+                      <input type="text" class="form-control" id="location" placeholder="Enter location" ng-model="vm.leaveApplication.location">
+                      </div>
+                  </div>
+
+              <div class="checkbox">
+                
+                <label><input type="checkbox" name="remember"> Remember me</label>
+              </div>
+
+              <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid"  >Submit</button>
+
+            </form>
+            
+            <div>
+              <table class="table">
+                  <thead>
+                      <tr>
+                          <th>leaveName</th>
+                          <th>start-date</th>
+                          <th>end-date</th>
+                          <th>leaveDays</th>
+                          <th>status</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                     <tr ng-repeat= "x in vm.leaveApplication.data.data">
+                          
+                             <td>{{x.hela_emp_id}}</td> 
+                             <td>{{x.hela_emp_id}}</td>
+                              <td>{{x.hela_emp_name}}</td>
+                              <td>{{x.hela_leave_start}}</td> 
+                              <td>{{x.hela_leave_end}}</td>
+                             </td>{{x.hela_designation_id}}</td> 
+                             
+                             <td></td> 
+                          
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+    </div> 
+ 

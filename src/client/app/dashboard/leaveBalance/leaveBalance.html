@@ -1,0 +1,43 @@
+
+    <div class="container">
+        
+            
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Leave Balance
+                            
+                        </div>
+                        <div class="panel-body">
+                            <div>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>leaveName</th>
+                                            <th>type</th>
+                                            <th>Max Leave</th>
+                                            <th>leaveBalance</th>
+                                            <th>status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       <tr ng-repeat= "x in vm.leaveBalance">
+                                            
+                                               <td>{{x.name}}</td> 
+                                               <td>{{x.type}}</td> 
+                                               <td>{{x.maxLeave}}</td> 
+                                               <td>{{x.availableLeave}}</td> 
+                                               <td>{{x.status}}</td> 
+                                            
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            
+            <script src="leaveBalance.controller.js"></script>
+        
+    </div>
