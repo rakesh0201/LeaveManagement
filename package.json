@@ -5,7 +5,8 @@
   "scripts": {
     "init": "npm install",
     "install": "bower install",
-    "postinstall": "webdriver-manager update",
+    "postinstall": "./node_modules/bower/bin/bower install" ,
+  
     "start": "node src/server/app.js",
     "test": "gulp test"
   },
